@@ -11,7 +11,7 @@ app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended:false}));
 app.use(express.static("public"));
 
-db.connection();
+// db.connection();
 
 
 //routes
@@ -40,6 +40,8 @@ if(process.env.NODE_ENV === 'development'){
         console.log(`server is running on port ${port}`);
     });
 }else{
-
+    app.listen(port,()=>{
+        console.log(`server is running on port ${port}`);
+    });
     module.exports = app;
 }
