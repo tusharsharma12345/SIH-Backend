@@ -15,11 +15,11 @@ async function weather(req, res) {
         });
     } catch (error) {
         console.error('Error fetching weather data:', error.message);
-
         res.status(500).json({
-            status: false,
-            message: 'Failed to fetch weather data.',
-        });
+            success: false,
+            msgCode: 500,
+            msg: getMessageByCode(500),
+          });
     }
 }
 
